@@ -9,7 +9,7 @@
 ## Links
 
 * Link to repo : https://github.com/hmd-asg/Employee-Payroll
-* Link to deployed app : 
+* Link to deployed app : https://hmd-asg.github.io/Employee-Payroll/
 
 ## Screenshots
 <img width="1439" alt="employee" src="https://github.com/hmd-asg/Employee-Payroll/assets/144643533/62608ae1-cb85-4cec-9627-49af26ffd029">
