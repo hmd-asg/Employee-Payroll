@@ -8,8 +8,8 @@ const collectEmployees = function () {
 
   while (next) {
     const fname = prompt('Enter your first name :');
-    const lname = prompt('Enter your first name :');
-    const sal = prompt('Enter your first name :');
+    const lname = prompt('Enter your last name :');
+    const sal = prompt('Enter your salary  :');
 
     const employee = {
       firstName: fname,
@@ -20,25 +20,29 @@ const collectEmployees = function () {
     employeesArr.push(employee);
     next = confirm('Do you wish to continue ?');
   }
-  console.log(employeesArr);
   return employeesArr;
 }
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
-  // TODO: Calculate and display the average salary
+
+  const totalEmp = employeesArray.length;
+  let totalSalary = 0;
+  for (let emp of employeesArray) {
+    totalSalary += emp.salary;
+  }
+  const avSalary = totalSalary / totalEmp;
+  return avSalary;
 }
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
   // TODO: Select and display a random employee
+  const index = Math.floor(Math.random() * employeesArray.length);
+  console.log(index);
+  return employeesArray[index];
 }
 
-/*
-  ====================
-  STARTER CODE
-  Do not modify any of the code below this line:
-*/
 
 // Display employee data in an HTML table
 const displayEmployees = function (employeesArray) {
@@ -78,13 +82,14 @@ const displayEmployees = function (employeesArray) {
 const trackEmployeeData = function () {
   const employees = collectEmployees();
 
-  console.table(employees);
+  const av = displayAverageSalary(employees);
 
-  displayAverageSalary(employees);
+  console.log(`the average salary is : ${av} $`);
 
-  console.log('==============================');
+  console.log('============================');
 
-  getRandomEmployee(employees);
+  const winner = getRandomEmployee(employees);
+  console.log(`The winner is : ${winner.firstName} ${winner.lastName}`);
 
   employees.sort(function (a, b) {
     if (a.lastName < b.lastName) {
